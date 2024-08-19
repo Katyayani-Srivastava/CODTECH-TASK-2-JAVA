@@ -1,37 +1,53 @@
+package com.inventorymanagement;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class InventoryManager {
     private List<Product> products = new ArrayList<>();
+    private Scanner scanner = new Scanner(System.in);
 
-    public void addProduct(Product product) {
-        products.add(product);
+    public void addProduct() {
+        System.out.print("Enter product name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter product quantity: ");
+        int quantity = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        products.add(new Product(name, quantity));
+        System.out.println("Product added.");
     }
 
-    public void deleteProduct(int id) {
-        products.removeIf(product -> product.getId() == id);
-    }
-
-    public void updateProduct(int id, Product updatedProduct) {
+    public void editProduct() {
+        System.out.print("Enter product name to edit: ");
+        String name = scanner.nextLine();
         for (Product product : products) {
-            if (product.getId() == id) {
-                product.setName(updatedProduct.getName());
-                product.setQuantity(updatedProduct.getQuantity());
-                product.setPrice(updatedProduct.getPrice());
+            if (product.getName().equals(name)) {
+                System.out.print("Enter new quantity: ");
+                int quantity = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+                product.setQuantity(quantity);
+                System.out.println("Product updated.");
+                return;
             }
         }
+        System.out.println("Product not found.");
     }
 
-    public void lowStockAlert(int threshold) {
-        for (Product product : products) {
-            if (product.getQuantity() < threshold) {
-                System.out.println("Low Stock Alert: " + product.getName());
+    public void deleteProduct() {
+        System.out.print("Enter product name to delete: ");
+        String name = scanner.nextLine();
+        products.removeIf(product -> product.getName().equals(name));
+        System.out.println("Product removed.");
+    }
+
+    public void listProducts() {
+        if (products.isEmpty()) {
+            System.out.println("No products in inventory.");
+        } else {
+            for (Product product : products) {
+                System.out.println(product);
             }
         }
-    }
-
-    public void generateSalesSummary() {
-        // Placeholder for sales summary logic
-        System.out.println("Sales Summary Generated");
     }
 }
