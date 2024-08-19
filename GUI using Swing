@@ -1,0 +1,68 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class InventoryApp {
+    private JFrame frame;
+    private JTextField usernameField;
+    private JPasswordField passwordField;
+
+    public InventoryApp() {
+        initialize();
+    }
+
+    private void initialize() {
+        frame = new JFrame("Inventory Management");
+        frame.setBounds(100, 100, 450, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setLayout(null);
+
+        JLabel lblUsername = new JLabel("Username:");
+        lblUsername.setBounds(50, 50, 80, 25);
+        frame.getContentPane().add(lblUsername);
+
+        usernameField = new JTextField();
+        usernameField.setBounds(150, 50, 200, 25);
+        frame.getContentPane().add(usernameField);
+        usernameField.setColumns(10);
+
+        JLabel lblPassword = new JLabel("Password:");
+        lblPassword.setBounds(50, 100, 80, 25);
+        frame.getContentPane().add(lblPassword);
+
+        passwordField = new JPasswordField();
+        passwordField.setBounds(150, 100, 200, 25);
+        frame.getContentPane().add(passwordField);
+
+        JButton btnLogin = new JButton("Login");
+        btnLogin.setBounds(150, 150, 100, 25);
+        frame.getContentPane().add(btnLogin);
+
+        btnLogin.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String username = usernameField.getText();
+                String password = new String(passwordField.getPassword());
+
+                if (User.authenticate(username, password)) {
+                    JOptionPane.showMessageDialog(frame, "Login Successful!");
+                    // Load inventory management screen
+                } else {
+                    JOptionPane.showMessageDialog(frame, "Invalid credentials");
+                }
+            }
+        });
+
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        User.register("admin", "password123");
+        EventQueue.invokeLater(() -> {
+            try {
+                InventoryApp window = new InventoryApp();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+}
