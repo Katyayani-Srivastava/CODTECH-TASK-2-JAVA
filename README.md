@@ -33,3 +33,5 @@ The Inventory Management System is a Java-based application designed to help man
 4) Collections Framework
 
 
+## Example Output
+![Screenshot 2024-08-20 011423](https://github.com/user-attachments/assets/abb887bc-26dd-4719-9be4-7b612d83367f)
