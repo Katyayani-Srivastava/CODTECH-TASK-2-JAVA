@@ -12,19 +12,19 @@
 
 The Inventory Management System is a Java-based application designed to help manage inventory for a store or warehouse. The system allows users to:
 
--**Add, edit, and delete products.**
--**Track inventory levels and generate low-stock alerts.**
--**Generate sales summaries.**
--**Authenticate users to ensure secure access.**
--**Utilize a graphical user interface (GUI) for better usability.**
+- **Add, edit, and delete products.**
+- **Track inventory levels and generate low-stock alerts.**
+- **Generate sales summaries.**
+- **Authenticate users to ensure secure access.**
+- **Utilize a graphical user interface (GUI) for better usability.**
 
 ## Features
 
--**User Authentication:** Ensures only authorized users can access the system.
--**Product Management:** Add, update, and remove products from the inventory.
--**Inventory Tracking:** Monitor product quantities and receive alerts when stock levels are low.
--**Sales Summaries:** Generate and view summaries of sales and inventory reports.
--**Graphical User Interface:** Intuitive and user-friendly GUI built with Java Swing.
+- **User Authentication:** Ensures only authorized users can access the system.
+- **Product Management:** Add, update, and remove products from the inventory.
+- **Inventory Tracking:** Monitor product quantities and receive alerts when stock levels are low.
+- **Sales Summaries:** Generate and view summaries of sales and inventory reports.
+- **Graphical User Interface:** Intuitive and user-friendly GUI built with Java Swing.
 
 ## Technology Used:
 1) Java
