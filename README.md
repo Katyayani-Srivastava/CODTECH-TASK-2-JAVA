@@ -28,8 +28,7 @@ The Inventory Management System is a Java-based application designed to help man
 
 ## Technology Used:
 1) Java
-2) Java Swing
-3) JDK
+2) JDK
 4) Collections Framework
 
 
